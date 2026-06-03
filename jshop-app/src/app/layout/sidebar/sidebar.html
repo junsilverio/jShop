@@ -1,0 +1,86 @@
+<nav class="sidebar" [class.collapsed]="collapsed">
+
+  <!-- Brand -->
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="url(#sg)" stroke-width="2.5"/>
+        <path d="M13 20h14M20 13v14" stroke="url(#sg)" stroke-width="2.5" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="sg" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4f6af0"/><stop offset="1" stop-color="#7b5ea7"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    @if (!collapsed) {
+      <span class="sidebar-brand-name">jShop</span>
+    }
+  </div>
+
+  <!-- Navigation -->
+  <ul class="nav-list">
+    @for (item of navItems; track item.label) {
+
+      <!-- Simple link -->
+      @if (!item.children) {
+        <li class="nav-item">
+          <a
+            [routerLink]="item.route"
+            routerLinkActive="active"
+            class="nav-link"
+            [title]="collapsed ? item.label : ''"
+          >
+            <span class="nav-icon" [innerHTML]="item.icon"></span>
+            @if (!collapsed) {
+              <span class="nav-label">{{ item.label }}</span>
+            }
+          </a>
+        </li>
+      }
+
+      <!-- Group with children -->
+      @if (item.children) {
+        <li class="nav-item nav-group" [class.open]="isOpen(item.label)">
+          <button
+            class="nav-link nav-group-toggle"
+            (click)="toggleMenu(item.label)"
+            [title]="collapsed ? item.label : ''"
+          >
+            <span class="nav-icon" [innerHTML]="item.icon"></span>
+            @if (!collapsed) {
+              <span class="nav-label">{{ item.label }}</span>
+              <span class="chevron">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 6 8 10 12 6"/>
+                </svg>
+              </span>
+            }
+          </button>
+
+          @if (!collapsed && isOpen(item.label)) {
+            <ul class="sub-nav">
+              @for (child of item.children; track child.label) {
+                <li>
+                  <a
+                    [routerLink]="child.route"
+                    routerLinkActive="active"
+                    class="sub-link"
+                  >{{ child.label }}</a>
+                </li>
+              }
+            </ul>
+          }
+        </li>
+      }
+
+    }
+  </ul>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    @if (!collapsed) {
+      <span class="version">v1.0.0</span>
+    }
+  </div>
+</nav>

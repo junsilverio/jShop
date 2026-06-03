@@ -1,0 +1,58 @@
+<div class="page-wrapper">
+  <h1 class="page-title">Dashboard</h1>
+
+  <div class="dashboard-grid">
+    <div class="stat-card glass-card">
+      <div class="stat-icon receiving">📦</div>
+      <div class="stat-info">
+        <div class="stat-value">1,284</div>
+        <div class="stat-label">Pending Receipts</div>
+      </div>
+    </div>
+    <div class="stat-card glass-card">
+      <div class="stat-icon shipment">🚚</div>
+      <div class="stat-info">
+        <div class="stat-value">342</div>
+        <div class="stat-label">Active Shipments</div>
+      </div>
+    </div>
+    <div class="stat-card glass-card">
+      <div class="stat-icon inventory">🏭</div>
+      <div class="stat-info">
+        <div class="stat-value">56,890</div>
+        <div class="stat-label">Total SKUs</div>
+      </div>
+    </div>
+    <div class="stat-card glass-card">
+      <div class="stat-icon task">✅</div>
+      <div class="stat-info">
+        <div class="stat-value">24</div>
+        <div class="stat-label">Open Tasks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="glass-card section-card">
+      <h3>Recent Activity</h3>
+      <ul class="activity-list">
+        <li><span class="dot green"></span>PO-2024-001 received – Dock 3</li>
+        <li><span class="dot blue"></span>SO-8821 shipped – Carrier: FedEx</li>
+        <li><span class="dot yellow"></span>Inventory adjustment – SKU A4402</li>
+        <li><span class="dot purple"></span>Yard truck check-in – Trailer TRL-091</li>
+        <li><span class="dot red"></span>Process order PO-901 delayed</li>
+      </ul>
+    </div>
+    <div class="glass-card section-card">
+      <h3>Quick Links</h3>
+      <div class="quick-links">
+        <a routerLink="/operations/receiving"     class="ql-item">📥 Receiving</a>
+        <a routerLink="/operations/shipment"      class="ql-item">📤 Shipment</a>
+        <a routerLink="/operations/inventory"     class="ql-item">📊 Inventory</a>
+        <a routerLink="/operations/task-management" class="ql-item">📋 Tasks</a>
+        <a routerLink="/reports"                  class="ql-item">📈 Reports</a>
+        <a routerLink="/administration/setup"     class="ql-item">⚙️ Setup</a>
+      </div>
+    </div>
+  </div>
+</div>
